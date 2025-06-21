@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Yapay Zeka ile Sohbet</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+</head>
+<body>
+    <div class="chat-container">
+        <h2>Rüyalarınızı Keşfedin: Gizli Mesajları Çözün</h2>
+        <p>"Her rüya bir mesaj taşır, her sembol bir anlam gizler. Bilinçaltınızın fısıldadığı sırları çözmeye hazır mısınız? Gecenin örtüsü altında saklanan işaretleri birlikte keşfedelim. Rüyanızın sizi nereye götürdüğünü öğrenmek için kapıyı aralayın…"</p>
+        
+        <form method="post" class="chat-form">
+            {% csrf_token %}
+            <div class="input-container">
+                {{ form.user_input }}
+            </div>
+            <div class="dropdown-container">
+                <label for="dream-category">Rüya Kategorisi Seçin:</label>
+                <select name="dream_category" id="dream-category">
+                    <option value="freud">Freud'un Psikanalitik Teorisi</option>
+                    <option value="jung">Jung'un Arketipler ve Kolektif Bilinçaltı Teorisi</option>
+                    <option value="aktivasyon">Aktivasyon-Sentez Hipotezi Teorisi</option>
+                    <option value="bilissel">Bilişsel Teori</option>
+                    <option value="tehdit">Tehdit Simülasyonu Teorisi</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button type="submit">Gönder</button>
+            </div>
+        </form>
+
+        {% if response %}
+            <div class="response-container">
+                <p>{{ response }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            scrollToBottom();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Yapay Zeka ile Sohbet</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+        }
+
+        .chat-container {
+            max-width: 500px;
+            height: 90vh;
+            margin: 3vh auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #ffe47a;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #eee;
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-container textarea,
+        .dropdown-container select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 14px;
+        }
+
+        .button-container button {
+            padding: 10px;
+            background-color: #ffd369;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button-container button:hover {
+            background-color: #ffb347;
+        }
+
+        .response-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                width: 90%;
+                height: 90vh;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2>Rüyalarınızı Keşfedin: Gizli Mesajları Çözün</h2>
+        <p>"Her rüya bir mesaj taşır, her sembol bir anlam gizler. Bilinçaltınızın fısıldadığı sırları çözmeye hazır mısınız? Gecenin örtüsü altında saklanan işaretleri birlikte keşfedelim. Rüyanızın sizi nereye götürdüğünü öğrenmek için kapıyı aralayın…"</p>
+        
+        <form method="post" class="chat-form">
+            {% csrf_token %}
+            <div class="input-container">
+                {{ form.user_input }}
+            </div>
+            <div class="dropdown-container">
+                <label for="dream-category">Rüya Kategorisi Seçin:</label>
+                <select name="dream_category" id="dream-category">
+                    <option value="freud">Freud'un Psikanalitik Teorisi</option>
+                    <option value="jung">Jung'un Arketipler ve Kolektif Bilinçaltı Teorisi</option>
+                    <option value="aktivasyon">Aktivasyon-Sentez Hipotezi Teorisi</option>
+                    <option value="bilissel">Bilişsel Teori</option>
+                    <option value="tehdit">Tehdit Simülasyonu Teorisi</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button type="submit">Gönder</button>
+            </div>
+        </form>
+
+        {% if response %}
+        <div class="response-container" id="response">
+            <p>{{ response }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde cevaba scroll yap
+        window.onload = function() {
+            const response = document.getElementById("response");
+            if (response) {
+                response.scrollIntoView({ behavior: "smooth" });
+            }
+        };
+    </script>
+</body>
+</html>

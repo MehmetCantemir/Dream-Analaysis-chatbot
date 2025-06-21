@@ -1,0 +1,165 @@
+html, body {
+    overflow-y: auto; /* Sayfanın kaymasını sağlar */
+    height: auto; /* Sayfanın dinamik olarak büyümesini sağlar */
+}
+
+
+body {
+    font-family: 'Cinzel Decorative', serif; /* Yazı tipi */
+    background: #1a1a2e ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.chat-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px; /* Daha yuvarlak kenarlar */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px; /* Daha büyük başlık */
+    color: #333;
+    margin-bottom: 30px;
+
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease-in-out;
+    text-shadow: 2px 2px 10px rgba(163, 160, 144, 0.7); /* Metin gölgesi */
+}
+
+p {
+    font-size: 20px;
+    width: 80%;
+    margin: auto;
+    line-height: 1.6;
+    text-shadow: 2px 2px 10px rgba(163, 160, 144, 0.7); /* Metin gölgesi */
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.chat-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 18px; /* Daha büyük girdi alanı */
+    border-radius: 12px; /* Daha yuvarlak kenarlar */
+    border: 2px solid #ddd;
+    font-size: 18px; /* Daha büyük yazı boyutu */
+    color: #333;
+    background-color: #f9f9f9; /* Daha açık arka plan */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* İç gölge */
+}
+
+input:focus, textarea:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 12px rgba(37, 117, 252, 0.3);
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+button {
+    background:#1a1a2e;
+    color: white;
+    font-size: 20px; /* Daha büyük yazı boyutu */
+    border: none;
+    padding: 18px 35px; /* Daha büyük buton */
+    border-radius: 12px; /* Daha yuvarlak kenarlar */
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Buton gölgesi */
+}
+
+button:hover {
+    transform: translateY(-3px); /* Hafif yukarı kaydırma */
+    background: #2a2a4b;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Daha belirgin gölge */
+}
+
+
+
+
+
+
+.response-container h3 {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.response-container p {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.6; /* Satır aralığı */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-container {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.dropdown-container label {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.dropdown-container select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropdown-container select:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 12px rgba(37, 117, 252, 0.3);
+}
+.dropdown-container select option {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+}
