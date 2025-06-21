@@ -58,7 +58,7 @@ Bu chatbotun amacı, kullanıcıların rüyalarını anlatarak bilinçaltı semb
 
 
 🌐 Canlı Demo
-mehmetcantemir.pythonanywhere.com
+https://mehmetcantemir.pythonanywhere.com
 
 
 📸 Ekran Görüntüleri
